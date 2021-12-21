@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const profileRoutes = require("./routes/profile");
+const videoRoutes = require("./routes/video");
+const audioRoutes = require("./routes/audio");
 
 // username and password are same: football123
 const MONGODB_URI = `mongodb+srv://football123:football123@football.wuanq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
@@ -32,6 +34,8 @@ app.get("/", (req, res, next) => {
 
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
+app.use("/video", videoRoutes);
+app.use("/audio", audioRoutes);
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, })
     .then(result => {

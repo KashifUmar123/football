@@ -2,15 +2,19 @@ const mongoose = require("mongoose");
 
 const VideoSchema = new mongoose.Schema({
     videoUrl: String,
+    audioId: String,
     hashtags: String,
     userId: String,
     description: String,
-    views: Number,
+    views: {
+        type: Number,
+        default: 0
+    },
     likes: [String],
-    comments: {
+    comments: [{
         type: Map,
         of: String
-    },
+    }]
 });
 
 module.exports = mongoose.model("Video", VideoSchema);

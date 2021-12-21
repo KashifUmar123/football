@@ -18,14 +18,16 @@ exports.login = async(req, res, next) => {
 
         if (!user) {
             res.status(400).json({
-                error: "Invalid Creds"
+                success: false,
+                message: "Invalid Creds"
             });
         }
 
         const isPasswordMatch = await bcrypt.compare(password, user.password);
         if (!isPasswordMatch) {
             res.status(400).json({
-                error: "Invalid Creds"
+                success: false,
+                message: "Invalid Creds"
             });
         }
 
@@ -35,6 +37,7 @@ exports.login = async(req, res, next) => {
         }, secretKey);
 
         res.status(200).json({
+            success: true,
             token: jwtToken,
             userId: user._id.toString(),
         })
@@ -70,12 +73,14 @@ exports.signup = async(req, res, next) => {
 
         await newUser.save();
         res.status(200).json({
+            success: true,
             message: "user registered"
         });
     } catch (error) {
         if (!error.statusCode) {
             error.statusCode = 500;
             res.status(500).json({
+                success: false,
                 message: "server error"
             });
         }
@@ -90,9 +95,15 @@ exports.checkUsername = async(req, res, next) => {
     });
 
     if (user != null) {
-        res.status(200).json({ usernameStatus: "Username not available" });
+        res.status(200).json({
+            success: false,
+            message: "Username not available"
+        });
     } else {
-        res.status(200).json({ usernameStatus: "Username available" });
+        res.status(200).json({
+            success: true,
+            message: "Username available"
+        });
     }
 }
 
@@ -106,8 +117,14 @@ exports.checkEmail = async(req, res, next) => {
     console.log(user);
 
     if (user != null) {
-        res.status(200).json({ userEmailStatus: "Email not available" });
+        res.status(200).json({
+            success: false,
+            message: "Email not available"
+        });
     } else {
-        res.status(200).json({ userEmailStatus: "Email available" });
+        res.status(200).json({
+            success: true,
+            message: "Email available"
+        });
     }
 }
