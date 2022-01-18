@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/adminHome.css">
+    <title>Admin | Home</title>
+</head>
+
+<body>
+    <div class="header">
+        <nav class="nav container">
+            <h5>Mvukla | Audio Upload</h5>
+            <a href="">Home</a>
+        </nav>
+    </div>
+
+    <div class="main container">
+        <div class="audio_upload">
+            <form enctype="multipart/form-data" action="/admin/post-audio" method="POST">
+                <h5 class="text-center">Audio Upload</h5>
+                <p class="text-center text-info">
+                    <%- msg %>
+                </p>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Audio Name</label>
+                    <input type="text" required class="form-control" name="name" id="name" aria-describedby="emailHelp" placeholder="Give a unique name to audio">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Audio Duration</label>
+                    <select name="duration" id="duration" class="custom-select">
+                    <option selected>Select duration in seconds</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                    <label for="file" class="form-label">Audio Files</label>
+                    <input type="file" required accept="audio/*" class="form-control" name="file" id="file">
+                </div>
+                <button type="submit" style="background-color: blue; color: #eee" class="btn btn-primary w-100">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

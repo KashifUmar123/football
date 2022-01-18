@@ -1,5 +1,7 @@
 const express = require('express');
-const profileController = require("../controllers/ProfileController");
+var path = require("path");
+// const profileController = require("../controllers/ProfileController");
+const profileController = require(path.join(__dirname, '../controllers/profileController'));
 const isAuth = require("../middlewares/is_auth");
 
 const router = express.Router();
