@@ -53,3 +53,28 @@ exports.getAudios = async(req, res, next) => {
         });
     }
 }
+
+exports.getWordBasedAudios = async(req, res, next) => {
+    let word = req.body.word;
+
+    try {
+        let audios = await Audio.find({
+            audioName: {
+                $regex: word + '.*'
+            }
+        });
+
+        res.status(200).json({
+            success: true,
+            message: "success!",
+            data: audios
+        });
+
+    } catch (error) {
+        res.status(400).json({
+            success: true,
+            message: "success!",
+            error: error
+        });
+    }
+}

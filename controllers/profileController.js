@@ -70,6 +70,24 @@ exports.updateYoutube = async(req, res, next) => {
     }
 };
 
+exports.updateGender = async(req, res, next) => {
+    console.log(req.user);
+    try {
+        req.user.gender = req.body.gender;
+        await req.user.save();
+        res.status(200).json({
+            success: true,
+            message: "profile gender updated!"
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: "profile gender updation failed!",
+            error: error
+        });
+    }
+};
+
 exports.follow = async(req, res, next) => {
     const toFollowId = req.body.toFollowId;
 
