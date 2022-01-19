@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Admin | Audios</title>
+</head>
+
+<body>
+    <div class="header bg-dark">
+        <nav class=" nav container ">
+            <h4 class="text-light">Mvukla</h4>
+        </nav>
+    </div>
+    <div class="first_section ">
+        <div class="container ">
+            <div class="first_left ">
+                <p>
+                    Set The World On Fire With Your Unique Talent
+                </p>
+                <div class="download ">
+                    <p>Download The App</p>
+                    <div class="download_imgs ">
+                        <a href=" ">
+                            <img src="./images/android_img.png " alt=" ">
+                        </a>
+                        <a href=" ">
+                            <img src="./images/ios_img.png " alt=" ">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tending_heading container ">
+        <h4 class="text-danger ">Tending Videos</h4>
+    </div>
+    <!-- second section -->
+    <div class="trending ">
+
+
+        <div class="each_video shadow ">
+            <div class="video_header ">
+                <div class="header_left ">
+                    <img src="./images/kashif_profile.jpg " alt=" ">
+                </div>
+                <div class="header_right ">
+                    <span class="video_title ">Hello World</span>
+                    <br>
+                    <span>#tags</span>
+                </div>
+
+            </div>
+            <div class="video_area ">
+                <video onmouseout="pause(this) " onmouseover="play(this); " preload="yes " muted>
+                    <source src="./images/video.mp4 " type="video/mp4 ">
+                </video>
+            </div>
+        </div>
+
+        <div class="each_video shadow-lg ">
+            <div class="video_header ">
+                <div class="header_left ">
+                    <img src="./images/kashif_profile.jpg " alt=" ">
+                </div>
+                <div class="header_right ">
+                    <span class="video_title ">Hello World</span>
+                    <br>
+                    <span>#tags</span>
+                </div>
+
+            </div>
+            <div class="video_area ">
+                <video onmouseout="pause(this) " onmouseover="play(this); " preload="yes " muted>
+                    <source src="./images/video.mp4 " type="video/mp4 ">
+                </video>
+            </div>
+        </div>
+        <div class="each_video shadow-lg ">
+            <div class="video_header ">
+                <div class="header_left ">
+                    <img src="./images/kashif_profile.jpg " alt=" ">
+                </div>
+                <div class="header_right ">
+                    <span class="video_title ">Hello World</span>
+                    <br>
+                    <span>#tags</span>
+                </div>
+
+            </div>
+            <div class="video_area ">
+                <video onmouseout="pause(this) " onmouseover="play(this); " preload="yes " muted>
+                    <source src="./images/video.mp4 " type="video/mp4 ">
+                </video>
+            </div>
+        </div>
+        <div class="each_video shadow-lg ">
+            <div class="video_header ">
+                <div class="header_left ">
+                    <img src="./images/kashif_profile.jpg " alt=" ">
+                </div>
+                <div class="header_right ">
+                    <span class="video_title ">Hello World</span>
+                    <br>
+                    <span>#tags</span>
+                </div>
+
+            </div>
+            <div class="video_area ">
+                <video onmouseout="pause(this) " onmouseover="play(this); " preload="yes " muted>
+                    <source src="./images/video.mp4 " type="video/mp4 ">
+                </video>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
+
+    <script>
+        let videos = document.getElementsByTagName("video ");
+        let isFirstTime = true;
+        let windowWidth = window.innerWidth;
+
+        window.addEventListener("resize ", () => {
+            windowWidth = window.innerWidth;
+            if (windowWidth < 500) {
+                console.log("< 500 ")
+                for (let i = 0; i < videos.length; i++) {
+                    // videos[i].autoplay = true;
+                    videos[i].controls = true;
+                }
+            } else {
+                for (let i = 0; i < videos.length; i++) {
+                    videos[i].autoplay = false;
+                    videos[i].controls = false;
+                }
+            }
+            if (isFirstTime && (windowWidth > 500)) {
+                for (let i = 0; i < videos.length; i++) {
+                    videos[i].pause();
+                }
+                isFirstTime = false;
+            }
+        }, true)
+
+
+
+        function play(event) {
+            console.log("mouse hovering! ")
+                // let v = document.getElementById(id);
+            event.play();
+        }
+
+        function pause(event) {
+            // let v = document.getElementById(id);
+            event.pause();
+        }
+    </script>
+</body>
+
+
+</html>

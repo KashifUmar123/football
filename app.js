@@ -9,6 +9,7 @@ const profileRoutes = require("./routes/profile");
 const videoRoutes = require("./routes/video");
 const audioRoutes = require("./routes/audio");
 const adminRoutes = require("./routes/admin");
+const homeRoutes = require("./routes/home");
 
 // username and password are same: football123
 const MONGODB_URI = `mongodb+srv://football123:football123@football.wuanq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
@@ -52,19 +53,12 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/", (req, res, next) => {
-    res.send("App is live");
-});
-
-app.get("/", (req, res, next) => {
-    res.send("App is working!");
-});
-
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 app.use("/video", videoRoutes);
 app.use("/audio", audioRoutes);
 app.use("/admin", adminRoutes);
+app.use(homeRoutes);
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, })
     .then(result => {
