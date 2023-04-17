@@ -12,7 +12,7 @@ const adminRoutes = require("./routes/admin");
 const homeRoutes = require("./routes/home");
 
 // username and password are same: football123
-const MONGODB_URI = `mongodb+srv://football123:football123@football.wuanq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const MONGODB_URI = ``;
 
 const app = express();
 
